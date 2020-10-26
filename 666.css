@@ -6,3 +6,7 @@ body {
 div {
     background-color: skyblue;
 }
+
+a {
+    text-decoration: none;
+}
