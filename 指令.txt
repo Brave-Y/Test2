@@ -34,8 +34,13 @@ git branch -d 删除分支
 
 9.远程码库
 git remote add origin https://github.com/Brave-Y/Test2.git   --链接
-remote 远程  add添加  origin源
 git push -u origin master   第一次推送必须添加-u
+remote 远程  add添加  origin源
+git remote -v 查看当前代码库信息
+
+git remote remove **删除当前代码库信息
+添加SSH信息git@github.com:Brave-Y/Test2.git
+
 
 
 
