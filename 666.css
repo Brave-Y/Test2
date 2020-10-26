@@ -9,4 +9,6 @@ div {
 
 a {
     text-decoration: none;
+    color: gray;
+    font-weight: 16px;
 }
