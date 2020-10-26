@@ -1,0 +1,46 @@
+1.配置SSH以及码云
+ssh-keygen -t rsa -C "你的邮箱地址"
+ssh-keygen -t rsa -C "tangfengpo@163.com"
+
+2.查询配置项
+ git config --list
+
+3.初始化
+git init --一个项目只需要初始化一次
+
+4.代码的变更以及保存
+git add .   
+git commit -m '必要的添加说明'
+git commit -a -m "提交日志"
+
+5.查看历史记录
+git log   =版本信息
+git log --oneline --reflog  =查看所有版本
+git checkout 版本号
+
+6.查看文件当前状态
+ git status
+
+7.分支
+git branch  =查看分支
+git branch dev =创建分支
+git checkout  切换分支-分支名
+
+8.分支的合并
+git merge dev    切换到master分支再进行合并
+git branch -a   查看所有分支
+git checkout -b  创建并切换分支
+git branch -d 删除分支
+
+9.远程码库
+git remote add origin https://github.com/Brave-Y/Test2.git   --链接
+remote 远程  add添加  origin源
+git push -u origin master   第一次推送必须添加-u
+
+
+
+    
+
+
+
+
