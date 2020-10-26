@@ -45,6 +45,8 @@ git remote remove **删除当前代码库信息之后可
 10.共同协作
 git clone    克隆到本地
 git pull origin master --rebase
+git pull origin master
+
 git push -u origin master
 
 git checkout .       
