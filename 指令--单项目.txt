@@ -38,23 +38,19 @@ git push -u origin master   第一次推送必须添加-u
 git remote -v 查看当前代码库信息
 git remote remove **删除当前代码库信息之后可
 添加SSH信息git@github.com:Brave-Y/Test2.git
-
 重点 -- git push origin master
-
 
 10.共同协作
 git clone    克隆到本地
-git pull origin master --rebase
-git pull origin master
-
-git push -u origin master
-
-git checkout .       
-git reset --hard   直接撤销回来
-
+git pull origin master --rebase    拉取并合并
+git pull origin master               
+git push -u origin master          只拉取不合并
+git branch -a   查询所有分支
 
 11,撤销操作
-1.
+git checkout .        暂存撤回到工作区
+git reset              远程仓库撤回到暂存区
+git reset --hard   暂存区直接撤回到工作区
 
 
 
