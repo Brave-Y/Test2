@@ -52,6 +52,8 @@ git checkout .        暂存撤回到工作区
 git reset              远程仓库撤回到暂存区
 git reset --hard   暂存区直接撤回到工作区
 
+12.test上传
+
 
 
     
