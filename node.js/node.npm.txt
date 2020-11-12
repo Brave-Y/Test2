@@ -1,0 +1,85 @@
+npm为node的第三方模块
+1.初始化 npm init -y
+
+2.安装卸载第三方模块
+npm install 模块名     npm uninstall 模块名
+npm i 模块名             npm un 模块名
+const moment = require('moment');
+
+3.全局模块
+npm i nodemon -g
+npm i -g nodemon
+
+4.Express模块--配置服务器    -npm i express
+https://www.expressjs.com.cn/4x/api.html#res
+
+const express = require('express');
+const app = express();
+app.listen(3006, () => console.log('express服务器开始工作了'));
+app.get('GET请求的地址', 处理函数);  --处理客户端的GET请求
+app.post('POST请求的地址', 处理函数);  --处理客户端的POST请求
+app.use() -- 设置应用级别的中间件
+
+- req.body -- 获取POST请求体
+- req.params -- 获取GET请求动态参数
+- req.query -- 获取GET请求参数(获取查询字符串参数)
+
+- res.sendFile(文件的绝对路径) -- 读取文件，并将结果响应
+- res.set({name, value}) -- 设置响应头
+- res.status(200) -- 设置响应状态码
+- res.send(字符串或对象) -- 响应结果，不能填数字
+- res.json(对象) -- 以JSON格式响应结果
+- res.jsonp() -- 以JSONP格式响应结果
+
+5.请求方法
+  1.如果请求体是查询字符串
+     // 写接口之前，配置
+     // 可以帮我们接收 content-type: application/x-www-form-urlencoded类型的请求体
+     app.use(express.urlencoded({extended: false}));
+     // 后续，任何一个POST接口，都可以通过req.body获取到请求体的内容
+     app.post('/api/addbook', (req, res) => {
+     // 获取请求体
+     console.log(req.body);
+     res.send('你的请求体收到了');});
+
+  2.获取formdata类型请求体  -下载安装第三方模块 multer
+  - 加载multer  const multer = require('multer')
+  - 配置上传目录  const upload = multer({ dest: 'uploads/' })
+  - app.post('/test',  upload.single('cover_img'),  (req, res) => {})
+  - 接口内部，可以使用req.body接收文本值，使用req.file接收文件信息
+
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+app.post('/test', upload.single('cover_img'), (req, res) => {
+    console.log(req.body); // { username: 'laotang', nickname: 'boy' }
+    console.log('=====================');
+    // 可以使用 req.file 获取文件信息
+    console.log(req.file);
+      {
+            fieldname: 'cover_img',
+            originalname: '1.jpg',
+            encoding: '7bit',
+            mimetype: 'image/jpeg',
+            destination: 'uploads/',  // 上传的目录
+            filename: '346d149a0a79c5c9792367c49d3db5ae', // 上传之后新文件的名字
+            path: 'uploads/346d149a0a79c5c9792367c49d3db5ae',
+            size: 35774
+        }
+    res.send('我已经接收到了提交的FormData格式的数据');
+});
+
+
+6.路由
+    使用路由文件的步骤
+ *  1. 加载express模块
+ *  2. 创建 router 对象
+ *  3. 把接口挂载到 router 对象上
+ *  4. 导出 router 对象
+ * app.js 中
+ *  5. 加载路由模块，并注册成中间件
+app.get('/my/userinfo', 中间件函数);
+app.post('/api/login', 中间件函数, 中间件函数, 中间件函数, 中间件函数 .....);
+app.use(中间件函数);
+app.use('接口url前缀', 中间件函数);
+
+

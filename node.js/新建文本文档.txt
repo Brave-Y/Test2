@@ -1,0 +1,94 @@
+MySQL 服务器软件（phpStudy）
+MySQL图形化管理工具（Navicat）
+账号root 密码root
+
+查询
+select username,age from student
+select * from student
+-- select * from student where id<20 and sex='女'
+-- 查询年龄大于等于20小于等于30的学生
+-- select * from student where age>=20 and age<=30
+-- select * from student where age between 20 and 30
+模糊查询  -- %为位置，左右中间
+-- 查询名字中带有飞的
+-- select * from student where username like '%飞%'
+统计查询
+- max  查询最大值 select max(age) from heroes
+- Min  查询最小值 select min(age) from heroes
+- avg  查询平均值 select avg(age) from heroes
+- sum 查询总和（查询所有英雄的年龄之和） select sum(age) from heroes
+- count 查询总记录数（查询共计有多少个英雄） select count(*) cc from heroes
+查询结果排序
+-- 查询所有的男同学，并按年龄降序排序
+select * from student where sex='男' order by age desc
+限制结果查询
+-- 查询年龄最小的女同学的信息
+select * from stu where sex='女' order by age asc limit 1
+
+
+添加
+insert into student set age=30, sex='男', username='李青'
+
+修改
+update student set age=20, sex='女' where id=11
+
+修改
+delete from student where id>6
+
+
+node中的sql模块 --- npm i mysql
+     const mysql = require('mysql');
+     const conn = mysql.createConnection({
+           host: 'localhost',
+           port: 3306,
+           user: 'root',
+           password: '',
+          database: 'yingxiong'
+});
+// 3. 连接到MySQL服务器
+      conn.connect();
+// 4. 完成查询（增删改查）
+conn.query('delete from heroes where id = 1', (err, result) => {
+     if (err === null) {
+         console.log(result);
+     } else {
+         console.log(err);
+     }
+});
+conn.end();
+
+
+占位符增删改查
+// SQL中有两个占位符，所以要传递一个数组
+// 第1个问号表示 “字段=值, 字段=值...”，所以为这个问号传递一个对象
+let sql = 'update heroes set ? where id = ?';
+let values = {
+    skill: '时光倒流',
+    sex: '男'
+}
+conn.query(sql, [values, 36], (err, result) => {
+    if (err) {
+        console.log('修改失败');
+    } else {
+        console.log('修改成功');
+    }
+});
+
+
+封装sql
+function abcd(sql, params, callback) {
+    const mysql = require('mysql');
+    const conn = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '12345678',
+        database: 'hahaha'
+    });
+    conn.connect();
+    // 完成增删改查
+    conn.query(sql, params, callback);
+    conn.end();
+}
+// 导出
+module.exports = abcd;
+

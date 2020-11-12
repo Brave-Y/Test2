@@ -1,0 +1,74 @@
+1.node-v  查看版本号 v  node 路径即运行    node init 初始化
+
+2.加载核心组件   
+let path = require('path');
+const path = require('path');
+path -- 处理路径
+fs -- 对文件夹的操作
+querystring -- 处理字符串
+
+3.node核心模块--http--搭建web服务器
+const http = require('http');
+const server = http.createServer(); 
+server.on('request', () => {
+   console.log('我发现你的请求了，但是不想搭理你');
+    // req：request，请求；它是一个对象；它包含了所有和请求相关的信息
+    // res：response，响应；它是一个对象；它包含了所有和响应相关的信息
+          * res.end('响应的内容'); --- 它可以设置响应体，并做出响应
+          * res.setHeader(); --- 设置响应头
+          * res.write('响应体'); -- 设置响应体，但不会做出响应
+          * res.writeHead() -- 设置响应头，设置响应状态码
+          * res.statusCode = 404;  ---- 设置响应状态码
+    // res.statusCode = 404;
+   res.setHeader('Content-Type', 'text/html; charset=utf-8');
+   res.end('hello，我是服务器');
+
+    // console.log(req.method); // 获取请求方式 GET 或 POST
+    // console.log(req.url); // 获取请求地址
+    // console.log(req.headers); // 获取请求头的信息
+
+    if (req.url === '/my/userinfo' && req.method === 'GET') {
+        // 说明浏览器请求的是 /my/userinfo 接口
+        // 做出对应的响应
+    } else if (req.url === '/api/login' && req.method === 'POST') {
+        // 说明浏览器请求的是 /api/login 接口
+        // 做出对应的响应
+    } else {
+        // 请求了一个不存在的接口，响应404，表示没有找到
+    }
+});
+server.listen(3000, () => {
+    console.log('服务器启动了');
+});
+
+4.写接口---原生
+//1.加载http模块
+const http = require('http');
+//2.创建服务对象
+const sever = http.createServer();
+//3.指定端口，启动服务
+sever.listen(3006, () => {
+    console.log('服务启动了')
+})
+//4.注册事件
+sever.on('request', (req, res) => {
+    console.log('你的请求我收到了')
+    console.log(req.method);
+    console.log(req.url)
+    let method = req.method, url = req.url;
+    let obj = new URL(url, 'http://www.erm.icu')
+    let api = obj.pathname;
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html;charset=utf-8');
+    //res.write('123')
+    if (method === 'GET' && api === '/api/getbooks') {
+        res.end('获取图书')
+    } else if (method === 'POST' && api === '/api/addbook') {
+        res.end('添加图书')
+    } else if (method === 'GET' && api === '/api/delbook') {
+        res.end('删除图书')
+    } else {
+        console.log('小朋友，你的接口有问题哦')
+    }
+})
+
