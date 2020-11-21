@@ -42,6 +42,7 @@ git remote remove **删除当前代码库信息之后可
 
 10.共同协作
 git clone    克隆到本地
+git clone -b dev111 git@gitee.com:fanyoufu2/hmpc.git
 git pull origin master --rebase    拉取并合并
 git pull origin master               
 git push -u origin master          只拉取不合并
@@ -53,6 +54,20 @@ git reset              远程仓库撤回到暂存区
 git reset --hard   暂存区直接撤回到工作区
 
 12.test上传
+
+
+13关于远程参股地址信息
+git remote --help   查看使用帮助
+git remote -v    查看所有远程仓库信息
+git remote add  名称 地址  添加远程仓库地址
+git remote remove  删除远程仓库信息
+git remote set -url 远程仓库地址名称 新地址
+修改远程仓库地址信息
+
+
+14.node.js
+nrm ls  查看镜像源
+nrm use taobao  切换到淘宝镜像
 
 
 
