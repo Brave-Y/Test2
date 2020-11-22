@@ -66,8 +66,12 @@ git remote set -url 远程仓库地址名称 新地址
 
 
 14.node.js
+npm i nrm -g
 nrm ls  查看镜像源
 nrm use taobao  切换到淘宝镜像
+
+npm打包启动服务器
+npm run serve
 
 
 
