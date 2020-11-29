@@ -1,0 +1,193 @@
+// 设置第五档位  1280px;
+@media screen and (min-width:1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// -------------------------左侧区域
+.left {
+
+  // 图片logo
+  .logo {
+    display: block;
+    background-color: blue;
+    text-align: center;
+
+    img {
+      // width: 100%;
+      // 如果父亲的宽度超过图片本身的宽度，那么就按照图片自身的宽度显示；
+      // 如果父亲的宽度没有超过图片本身的宽度，那么就按照父级的宽度进行显示；
+      max-width: 100%;
+    }
+
+    span {
+      display: block;
+      height: 50px;
+      line-height: 50px;
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+
+  // 导航区
+  nav {
+    border-bottom: 1px solid #000;
+
+    a {
+      display: block;
+      height: 50px;
+      line-height: 50px;
+      background-color: #ccc;
+      color: #000;
+      padding-left: 35px;
+    }
+
+    a:hover {
+      background-color: #fff;
+    }
+  }
+}
+
+
+// 小于992px; 导航区是一种新的布局，涉及到向下，需要自己写媒体查询；
+@media screen and (max-width:991px) {
+  .left {
+
+    // 导航区
+    nav {
+      margin-bottom: 10px;
+
+      a {
+        float: left;
+        width: 20%;
+      }
+    }
+  }
+}
+
+
+// -------------------------中间区域
+.mid {
+
+  // 图片区
+  .imgs {
+    border-bottom: 1px solid #222;
+
+    // 公共的
+    a {
+      // 不是margin
+      border-left: 10px solid #fff;
+      border-bottom: 10px solid #fff;
+      float: left;
+      width: 25%;
+      height: 133px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 44px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 12px;
+        padding: 5px;
+      }
+    }
+
+    // 第一个：
+    a:nth-child(1) {
+      width: 50%;
+      height: 266px;
+      border-left: 0px solid #fff;
+
+      span {
+        font-size: 24px;
+      }
+    }
+  }
+
+  // 新问区
+  .news {
+    .one {
+      border-bottom: 1px solid #ccc;
+
+      img {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 小于768px 图片布局重新写 自己写媒体查询
+@media screen and (max-width:767px) {
+  .mid {
+
+    // 图片区
+    .imgs {
+
+      // 公共的
+      a {
+        width: 50%;
+        border-left: 0px solid #fff;
+      }
+
+      // 第一个：
+      a:nth-child(1) {
+        width: 100%;
+      }
+
+      // 2 4 
+      a:nth-child(2n) {
+        border-right: 5px solid #fff;
+      }
+
+      // 3 5 
+      a:nth-child(2n+3) {
+        border-left: 5px solid #fff;
+      }
+    }
+
+
+
+  }
+}
+
+
+// -------------------------右侧区域
+.right {
+  a {
+    display: block;
+
+    img {
+      width: 100%;
+    }
+  }
+
+
+  .box {
+    margin-top: 10px;
+    padding: 0 10px;
+    border: 1px solid #000;
+
+    button {
+      border-radius: 0;
+    }
+  }
+}

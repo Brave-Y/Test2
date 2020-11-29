@@ -70,8 +70,12 @@ npm i nrm -g
 nrm ls  查看镜像源
 nrm use taobao  切换到淘宝镜像
 
-npm打包启动服务器
-npm run serve
+
+15.npm 打包启动服务器
+npm run serve  启动服务器
+npx webpack：直接打包到硬盘文件
+npx webpack-dev-server：在内存中打包（自动运行）
+json-server  文件名 模拟服务器运行
 
 
 

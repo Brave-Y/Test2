@@ -1,0 +1,197 @@
+//挡位优化
+@media screen and (max-width:320px) {
+    html {
+        font-size: 32px !important;
+    }
+}
+
+@media screen and (min-width:640px) {
+    html {
+        font-size: 64px !important;
+    }
+}
+
+//初始化
+body {
+    width: 10rem;
+    margin: 0 auto;
+    background-color: rgb(204, 204, 204);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+//头部四栏
+.header {
+    display: flex;
+    height: .703rem;
+    background-color: #222;
+    text-align: center;
+    line-height: .703rem;
+    color: #fff;
+}
+
+.header .close {
+    flex: 8;
+}
+
+.header .logo {
+    flex: 10;
+}
+
+.header div:nth-child(3) {
+    flex: 57;
+}
+
+.header div:nth-child(4) {
+    flex: 25;
+    background-color: red;
+}
+
+.header .close img {
+    width: .156rem;
+    height: .156rem;
+}
+
+.header .logo img {
+    width: .469rem;
+    height: .469rem;
+}
+
+/* ===============搜索区========== */
+.search-wrap {
+    display: flex;
+    position: fixed;
+    width: 10rem;
+    text-align: center;
+    line-height: .703rem;
+}
+
+.search-wrap .search-btn,
+.search-wrap .search-login {
+    width: .625rem;
+    height: .703rem;
+}
+
+.search-wrap .search-btn::before {
+    display: inline-block;
+    content: "";
+    width: .313rem;
+    height: .281rem;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: .313rem .281rem;
+}
+
+.search-wrap .search {
+    position: relative;
+    flex: 1;
+    background-color: #fff;
+    margin: .125rem;
+    border-radius: .219rem;
+}
+
+.search-wrap .search::before {
+    position: absolute;
+    left: .109rem;
+    top: .078rem;
+    content: "";
+    width: .313rem;
+    height: .234rem;
+    background: url(../images/jd.png) no-repeat;
+    background-size: contain;
+}
+
+.search-wrap i {
+    position: absolute;
+    left: .547rem;
+    top: .078rem;
+    width: .016rem;
+    height: .234rem;
+    background-color: #ccc;
+}
+
+.search-wrap .search::after {
+    position: absolute;
+    left: .703rem;
+    top: .078rem;
+    content: "";
+    width: .234rem;
+    height: .234rem;
+    background: url(../images/jd-sprites.png) no-repeat -1.297rem 0;
+    background-size: 3.109rem;
+
+}
+
+.search-wrap .search-login {
+    color: #fff;
+}
+
+/* ==========banner部分========== */
+.banner {
+    display: flex;
+}
+
+.banner a {
+    flex: 1;
+}
+
+.banner a img {
+    width: 100%;
+}
+/* ===========家电部分=========== */
+.jiadian {
+    display: flex;
+}
+
+.jiadian a {
+    flex: 1;
+}
+
+.jiadian a img {
+    width: 100%;
+}
+/* ==========market部分========== */
+.market {
+    display: flex;
+    flex-wrap: wrap;
+    height: 2.5rem;
+    margin: .156rem 0;
+
+}
+
+.market a {
+    flex: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+
+}
+
+.market a img {
+    width: 30%;
+    margin: .078rem 0;
+}
+/* ==========抽奖部分========= */
+.reward {
+    display: flex;
+}
+
+.reward a:nth-child(1) {
+    flex: 2;
+}
+
+.reward a:nth-child(2),
+.reward a:nth-child(3) {
+    flex: 1;
+}
+
+.reward a img {
+    width: 100%;
+}
+
