@@ -77,6 +77,16 @@ npx webpack：直接打包到硬盘文件
 npx webpack-dev-server：在内存中打包（自动运行）
 json-server  文件名 模拟服务器运行
 
+16.项目上线
+npm run build
+
+git add .
+
+git commit -a -m “提交说明” --no-verify
+
+git push
+
+
 
 
     
