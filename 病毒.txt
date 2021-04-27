@@ -1,0 +1,3 @@
+do
+msgbox"狗儿子我是你爸爸"
+loop

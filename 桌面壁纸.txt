@@ -1,0 +1,3 @@
+set ws=createobject("wscript.shell")
+ws.regwrite "HKCU\Control Panel\Desktop\wallpaper","图片路径","REG_SZ"
+ws.run "RunDll32.exe USER32.DLL,UpdatePerUserSystemParameters"

